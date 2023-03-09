@@ -16,12 +16,9 @@ public class P2PBlockchainDriver {
         //node.addPeer("localhost", 5002);
 
         // create and add some blocks to the blockchain
-        Block block1 = new Block(blockchain.getLatestBlock().getIndex() + 1, "Block 1 data", blockchain.getLatestBlock().getHash());
-        blockchain.addBlock(block1);
-
-        Block block2 = new Block(blockchain.getLatestBlock().getIndex() + 1, "Block 2 data", blockchain.getLatestBlock().getHash());
-        blockchain.addBlock(block2);
-
+        for(int i = 0; i < 50; i++) {
+        	blockchain.addBlock(new Block(blockchain.getLatestBlock().getIndex() + 1, Integer.toString(i), blockchain.getLatestBlock().getHash()));
+        }
         // print out the blockchain and its validity
         System.out.println("P2P Blockchain:");
         System.out.println(blockchain.getLatestBlock().getData());
