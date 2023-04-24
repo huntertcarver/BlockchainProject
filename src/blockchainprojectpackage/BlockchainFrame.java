@@ -61,7 +61,7 @@ public class BlockchainFrame extends JFrame{
 
 		//-----------------------Admin Button--------------------------------
 		adminButton = new JButton("Login as Administrator");
-		adminButton.setBounds(255, 365, 160, 35);
+		adminButton.setBounds(255, 365, 165, 35);
 		adminButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
