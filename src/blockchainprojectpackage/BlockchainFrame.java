@@ -33,6 +33,7 @@ public class BlockchainFrame extends JFrame{
 	private JRadioButton optionButton5;
 	private JRadioButton optionButton6;
 	private ButtonGroup partyGroup = new ButtonGroup();
+	public JRadioButton buttonArray[] = new JRadioButton[] {optionButton1, optionButton2, optionButton3, optionButton4, optionButton5, optionButton6}; 
 	
 	
 	
@@ -88,6 +89,7 @@ public class BlockchainFrame extends JFrame{
 		partyPanel.add(optionButton4);
 		partyPanel.add(optionButton5);
 		partyPanel.add(optionButton6);
+		//All of the option buttons are disabled by default, and are enabled when in use.
 		optionButton1.setVisible(false);
 		optionButton2.setVisible(false);
 		optionButton3.setVisible(false);
@@ -101,7 +103,7 @@ public class BlockchainFrame extends JFrame{
 		
 		partyPanel.setBackground(Color.DARK_GRAY); //Change the background color of each panel to dark gray.
 		
-		JRadioButton buttonArray[] = new JRadioButton[] {optionButton1, optionButton2, optionButton3, optionButton4, optionButton5, optionButton6}; 
+		
 		// Line above gives every radio button for the candidates to an array so it can be run through a for loop to change the color.
 		for (int i = 0; i < buttonArray.length; i++) {
 			buttonArray[i].setBackground(Color.DARK_GRAY);

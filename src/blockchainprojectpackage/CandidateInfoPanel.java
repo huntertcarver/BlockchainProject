@@ -20,9 +20,9 @@ public class CandidateInfoPanel extends JFrame{
 	//Two JLabels for each class.
 	private JLabel repParty = new JLabel("Election Candidates");
 	
-	CandidateInfoPanel(){
+	CandidateInfoPanel(BlockchainFrame mainFrame, Blockchain mainChain){
 		//Set the layout to null and change the setBounds of each element.
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		setLayout(null);
 		Font font = new Font("Verdana", Font.BOLD, 14);
@@ -38,7 +38,8 @@ public class CandidateInfoPanel extends JFrame{
 		fifthCandidate.setBounds(190, 100, 140, 25);
 		sixthCandidate.setBounds(190, 140, 140, 25);
 		
-		//voteFrame.firstPartyButton1.setText(firstCandidate.getText());
+		//Make an array of JTextFields to hold each value of the text fields admins can enter in.
+		JTextField textArray[] = new JTextField[] {firstCandidate, secondCandidate, thirdCandidate, fourthCandidate, fifthCandidate, sixthCandidate};
 		
 		//add each to the frame.
 		add(submitButton);
@@ -50,11 +51,18 @@ public class CandidateInfoPanel extends JFrame{
 		add(fifthCandidate);
 		add(sixthCandidate);
 		
-//		submitButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				int 
-//			}
-//		});
+		submitButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				for (int i = 0; i < textArray.length; i++) {
+					if (!textArray[i].getText().equals("")) {
+						mainFrame.buttonArray[i].setText(textArray[i].getText());
+						mainFrame.buttonArray[i].setVisible(true);
+					}
+				}
+				BlockchainFrame currentVoteFrame = new BlockchainFrame(mainChain);
+				//mainFrame.buttonArray[i].setText(textArray[i].getText());
+			}
+		});
 		
 	}
 }
