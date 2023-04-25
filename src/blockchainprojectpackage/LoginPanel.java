@@ -14,27 +14,26 @@ public class LoginPanel extends JFrame implements ActionListener {
 	public JLabel passLabel = new JLabel("Password");
 	public JTextField passField = new JTextField(20);
 	public JButton loginButton = new JButton("Login");
-	private JComboBox candidateComboBox;
+	//private JComboBox candidateComboBox;
 	private JButton infoButton = new JButton("Enter Candidate Info");
 	private JButton resultsButton = new JButton("View Results");
 	
 	
 	LoginPanel()
 	{
-		//Add array of integers for combo box options and add them to the combo box.
-		String numOfCandidates[] = {"1", "2", "3", "4", "5", "6"};
-		candidateComboBox = new JComboBox(numOfCandidates);
-		candidateComboBox.setVisible(Boolean.FALSE);
+		//candidateComboBox = new JComboBox(numOfCandidates);
+		//candidateComboBox.setVisible(Boolean.FALSE);
 		infoButton.setVisible(Boolean.FALSE);
 		resultsButton.setVisible(Boolean.FALSE);
 		
 		//SETTING BOUNDS FOR ALL THE BUTTONS IN THE FRAME.
-		candidateComboBox.setBounds(80, 90, 60, 30);
+		//candidateComboBox.setBounds(80, 90, 60, 30);
 		passField.setBounds(100, 20, 180, 30);
 		loginButton.setBounds(290, 20, 80, 30);
 		passLabel.setBounds(35, 18, 60, 30);
-		infoButton.setBounds(160, 90, 180, 30);
-		resultsButton.setBounds(140, 280, 140, 40);
+		infoButton.setBounds(20, 280, 150, 40);
+		//infoButton.setBounds(160, 90, 180, 30);
+		resultsButton.setBounds(210, 280, 150, 40);
 		panel.setBounds(0, 0, 400, 400);
 		
 		//ADDING ELEMENTS TO THE PANEL AND SETTING THE DEFAULT PROTOCOL OF THE FRAME.
@@ -44,7 +43,7 @@ public class LoginPanel extends JFrame implements ActionListener {
 		panel.add(passLabel);
 		panel.add(passField);
 		panel.add(loginButton);
-		panel.add(candidateComboBox);
+		//panel.add(candidateComboBox);
 		panel.add(infoButton);
 		panel.add(resultsButton);
 		setVisible(true);
@@ -60,7 +59,7 @@ public class LoginPanel extends JFrame implements ActionListener {
 				if(password.equals("admin"))
 				{
 					//Create a combobox and add it to frame (max number of six candidates)
-					candidateComboBox.setVisible(Boolean.TRUE);
+					//candidateComboBox.setVisible(Boolean.TRUE);
 					infoButton.setVisible(Boolean.TRUE);
 					resultsButton.setVisible(Boolean.TRUE);
 				}
@@ -77,7 +76,7 @@ public class LoginPanel extends JFrame implements ActionListener {
 				String password = passField.getText();	
 				if(password.equals("admin"))
 				{
-					candidateComboBox.setVisible(Boolean.TRUE);
+					//candidateComboBox.setVisible(Boolean.TRUE);
 					infoButton.setVisible(Boolean.TRUE);
 					resultsButton.setVisible(Boolean.TRUE);
 				}
@@ -91,6 +90,9 @@ public class LoginPanel extends JFrame implements ActionListener {
 				//Opens panel to enter info for the number of candidates entered in the comboBox.
 				//figure out how to check for the value inside of the comboBox and then setVisible that many textFields in the new frame 
 				//make new frame tomorrow and just have 6 possible candidates and however many displayed based on the comboBox answer.
+				if (e.getSource() == infoButton) {
+					CandidateInfoPanel adminInfoPanel = new CandidateInfoPanel();
+				}
 			}
 		});
 		

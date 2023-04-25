@@ -9,7 +9,6 @@ import java.util.Base64;
 public class Blockchain {
     private ArrayList<Block> blocks; //Array list to hold blocks, to make it easy to access different transactions.
     private int difficulty; //number that mining algorithm increases up to (changes how many 0's to check for, the more 0's the more difficult).
-    public int totalBlocks=0;
 
     //constructor
     public Blockchain(int difficulty) {
@@ -31,7 +30,6 @@ public class Blockchain {
         newBlock.setPreviousHash(this.getLatestBlock().getHash());
         newBlock.mineBlock(difficulty);
         this.blocks.add(newBlock);
-        totalBlocks++;
     }
 
     //Makes sure that there are no duplicates hash values, and that all blocks are pointing correctly.
