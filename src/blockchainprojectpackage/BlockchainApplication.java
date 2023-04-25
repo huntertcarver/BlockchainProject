@@ -1,7 +1,5 @@
 package blockchainprojectpackage;
 
-import javax.swing.JFrame;
-
 public class BlockchainApplication {
 
 	public static void main(String[] args) {

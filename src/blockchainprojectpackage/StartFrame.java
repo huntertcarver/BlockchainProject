@@ -1,11 +1,14 @@
 package blockchainprojectpackage;
 
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class StartFrame extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public JPanel mainPanel = new JPanel();
 	public JLabel mainLabel = new JLabel("Menu");
 	public JButton loginButton = new JButton("Start Voting");
@@ -38,7 +41,7 @@ public class StartFrame extends JFrame {
 				if(e.getSource() == adminButton)
 				{
 					
-					LoginPanel newAdmin = new LoginPanel();
+					LoginPanel newAdmin = new LoginPanel(mainChain);
 				}
 			}
 		});

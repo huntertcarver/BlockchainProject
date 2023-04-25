@@ -16,6 +16,10 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 public class BlockchainFrame extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField voteInformation;
 	private JTextField electionTitle;
 	private JButton adminButton;
@@ -68,7 +72,7 @@ public class BlockchainFrame extends JFrame{
 				if(e.getSource() == adminButton)
 				{
 					
-					LoginPanel newAdmin = new LoginPanel();
+					LoginPanel newAdmin = new LoginPanel(voteBlock);
 				}
 			}
 		});
@@ -82,29 +86,7 @@ public class BlockchainFrame extends JFrame{
 			partyGroup.add(buttonArray[i]);
 			partyPanel.add(buttonArray[i]);
 			buttonArray[i].setVisible(false);
-		}
-		
-		
-//		partyGroup.add(optionButton1 = new JRadioButton("Candidate 1")); //Initialize and set the name of each radio button.
-//		partyGroup.add(optionButton2 = new JRadioButton("Candidate 2"));
-//		partyGroup.add(optionButton3 = new JRadioButton("Candidate 3"));
-//		partyGroup.add(optionButton4 = new JRadioButton("Candidate 4"));
-//		partyGroup.add(optionButton5 = new JRadioButton("Candidate 5"));
-//		partyGroup.add(optionButton6 = new JRadioButton("Candidate 6"));
-//		partyPanel.add(optionButton1);
-//		partyPanel.add(optionButton2);
-//		partyPanel.add(optionButton3);
-//		partyPanel.add(optionButton4);
-//		partyPanel.add(optionButton5);
-//		partyPanel.add(optionButton6);
-		//All of the option buttons are disabled by default, and are enabled when in use.
-//		optionButton1.setVisible(false);
-//		optionButton2.setVisible(false);
-//		optionButton3.setVisible(false);
-//		optionButton4.setVisible(false);
-//		optionButton5.setVisible(false);
-//		optionButton6.setVisible(false);
-		
+		}		
 		
 		add(partyPanel); //Add the party panel to the frame.
 		partyPanel.setBounds(45, 140, 150, 185 ); //change the bounds of the panel to set where the button group is on the frame.
@@ -149,7 +131,7 @@ public class BlockchainFrame extends JFrame{
 						{
 							if(buttonArray[i].isSelected())
 							{
-								Block voted = new Block(voteBlock.getLatestBlock().getIndex() + 1, Integer.toString(i+1), voteBlock.getLatestBlock().getHash());
+								Block voted = new Block(voteBlock.getLatestBlock().getIndex() + 1, buttonArray[i].getName(), voteBlock.getLatestBlock().getHash());
 								voteBlock.addBlock(voted);
 								System.out.println(voteBlock.getLatestBlock().getData());
 							}

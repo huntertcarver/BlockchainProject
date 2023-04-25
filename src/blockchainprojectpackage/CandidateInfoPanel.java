@@ -1,14 +1,16 @@
 package blockchainprojectpackage;
 
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 public class CandidateInfoPanel extends JFrame{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//need 6 text field because that is the max number of candidates 
 	private JButton submitButton = new JButton("Submit Candidates");
 	private JTextField firstCandidate = new JTextField(30);

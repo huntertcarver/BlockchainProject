@@ -1,13 +1,16 @@
 package blockchainprojectpackage;
 
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.*;
 
-public class LoginPanel extends JFrame implements ActionListener {
+public class LoginPanel extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//public JFrame frame = new JFrame();
 	public JPanel panel = new JPanel();
 	public JLabel label = new JLabel("test");
@@ -17,7 +20,7 @@ public class LoginPanel extends JFrame implements ActionListener {
 	private JButton resultsButton = new JButton("View Results");
 	
 	
-	LoginPanel()
+	LoginPanel(Blockchain mainChain)
 	{
 		resultsButton.setVisible(Boolean.FALSE);
 		
@@ -72,7 +75,7 @@ public class LoginPanel extends JFrame implements ActionListener {
 		resultsButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e) {
-				System.out.print("test"); //PLACEHOLDER
+				ResultsPanel finalPanel = new ResultsPanel(mainChain);
 				//Add event handling so that when the button gets pressed it opens the frame that Christian was working on.
 			}
 		});
