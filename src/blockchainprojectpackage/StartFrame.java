@@ -11,6 +11,7 @@ public class StartFrame extends JFrame {
 	public JButton loginButton = new JButton("Start Voting");
 	public JButton adminButton = new JButton("Admin Login");
 	public JButton infoButton = new JButton("Enter Candidate Info");
+	public JTextField passField = new JTextField(20);
 	
 	
 	//CHANGE SET BOUNDS OF EACH BUTTON AND MENU JLABEL SO START FRAME LOOKS NICE.
@@ -42,14 +43,16 @@ public class StartFrame extends JFrame {
 			}
 		});
 		
-		//---------------------------------LOGIN BUTTON-----------------------------
+		//---------------------------------VOTE BUTTON-----------------------------
 		add(adminButton);
 		//loginButton.setBounds(200,200,180,85);
 		loginButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == loginButton) {
-					//BlockchainFrame updatedFrame = new BlockchainFrame(mainFrame);
-					System.out.println("dog");
+					//BlockchainFrame updatedFrame = new BlockchainFrame(mainChain);
+					mainFrame.setVisible(true);
+					mainFrame.setSize(450, 400);
+					//System.out.println("dog");
 				}
 			}
 		});
@@ -60,7 +63,9 @@ public class StartFrame extends JFrame {
 		infoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == infoButton) {
-					CandidateInfoPanel adminInfoPanel = new CandidateInfoPanel(mainFrame, mainChain);
+						CandidateInfoPanel adminInfoPanel = new CandidateInfoPanel(mainFrame, mainChain);
+						adminInfoPanel.setVisible(true);
+						adminInfoPanel.setSize(380, 320);
 				}
 			}
 		});

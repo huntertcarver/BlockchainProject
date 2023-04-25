@@ -70,7 +70,7 @@ public class Blockchain {
         return hashedData;
     }
     
-    public int getTotalBlocks() {
-    	return totalBlocks;
+    public ArrayList<Block> getBlocks(){
+    	return this.blocks;
     }
 }

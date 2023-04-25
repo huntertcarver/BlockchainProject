@@ -1,5 +1,6 @@
 package blockchainprojectpackage;
 
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -59,7 +60,8 @@ public class CandidateInfoPanel extends JFrame{
 						mainFrame.buttonArray[i].setVisible(true);
 					}
 				}
-				BlockchainFrame currentVoteFrame = new BlockchainFrame(mainChain);
+				mainFrame.setVisible(true);
+				mainFrame.setSize(450, 400);
 				//mainFrame.buttonArray[i].setText(textArray[i].getText());
 			}
 		});

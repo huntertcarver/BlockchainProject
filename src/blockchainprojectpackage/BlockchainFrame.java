@@ -1,10 +1,12 @@
 package blockchainprojectpackage;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,18 +24,15 @@ public class BlockchainFrame extends JFrame{
 	//Stuff to be added that we talked about during meeting 4/19
 	//making first group for main panel of each party.
 	private JPanel partyPanel = new JPanel();
-	private JRadioButton optionButton1;
-	private JRadioButton optionButton2;
-	private JRadioButton optionButton3;
-
-	
-	//firstParty.add(firstPartyButton1 = new JRadioButton);
-	//Figure out how to instantiate and add each radio button to the button group.
-	private JRadioButton optionButton4;
-	private JRadioButton optionButton5;
-	private JRadioButton optionButton6;
+	private JRadioButton optionButton1 = new JRadioButton();
+	private JRadioButton optionButton2 = new JRadioButton();
+	private JRadioButton optionButton3 = new JRadioButton();
+	private JRadioButton optionButton4 = new JRadioButton();
+	private JRadioButton optionButton5 = new JRadioButton();
+	private JRadioButton optionButton6 = new JRadioButton();
 	private ButtonGroup partyGroup = new ButtonGroup();
-	public JRadioButton buttonArray[] = new JRadioButton[] {optionButton1, optionButton2, optionButton3, optionButton4, optionButton5, optionButton6}; 
+	public JRadioButton buttonArray[] = new JRadioButton[6]; 
+	
 	
 	
 	
@@ -77,29 +76,39 @@ public class BlockchainFrame extends JFrame{
 		add(adminButton);
 		
 		//--------------Radio Button Groups-------------------------------------
-		partyGroup.add(optionButton1 = new JRadioButton("Candidate 1")); //Initialize and set the name of each radio button.
-		partyGroup.add(optionButton2 = new JRadioButton("Candidate 2"));
-		partyGroup.add(optionButton3 = new JRadioButton("Candidate 3"));
-		partyGroup.add(optionButton4 = new JRadioButton("Candidate 4"));
-		partyGroup.add(optionButton5 = new JRadioButton("Candidate 5"));
-		partyGroup.add(optionButton6 = new JRadioButton("Candidate 6"));
-		partyPanel.add(optionButton1);
-		partyPanel.add(optionButton2);
-		partyPanel.add(optionButton3);
-		partyPanel.add(optionButton4);
-		partyPanel.add(optionButton5);
-		partyPanel.add(optionButton6);
+		
+		for(int i = 0; i < 6;i++) {
+			buttonArray[i] = new JRadioButton("Candidate" + (i+1));
+			partyGroup.add(buttonArray[i]);
+			partyPanel.add(buttonArray[i]);
+			buttonArray[i].setVisible(false);
+		}
+		
+		
+//		partyGroup.add(optionButton1 = new JRadioButton("Candidate 1")); //Initialize and set the name of each radio button.
+//		partyGroup.add(optionButton2 = new JRadioButton("Candidate 2"));
+//		partyGroup.add(optionButton3 = new JRadioButton("Candidate 3"));
+//		partyGroup.add(optionButton4 = new JRadioButton("Candidate 4"));
+//		partyGroup.add(optionButton5 = new JRadioButton("Candidate 5"));
+//		partyGroup.add(optionButton6 = new JRadioButton("Candidate 6"));
+//		partyPanel.add(optionButton1);
+//		partyPanel.add(optionButton2);
+//		partyPanel.add(optionButton3);
+//		partyPanel.add(optionButton4);
+//		partyPanel.add(optionButton5);
+//		partyPanel.add(optionButton6);
 		//All of the option buttons are disabled by default, and are enabled when in use.
-		optionButton1.setVisible(false);
-		optionButton2.setVisible(false);
-		optionButton3.setVisible(false);
-		optionButton4.setVisible(false);
-		optionButton5.setVisible(false);
-		optionButton6.setVisible(false);
+//		optionButton1.setVisible(false);
+//		optionButton2.setVisible(false);
+//		optionButton3.setVisible(false);
+//		optionButton4.setVisible(false);
+//		optionButton5.setVisible(false);
+//		optionButton6.setVisible(false);
 		
 		
 		add(partyPanel); //Add the party panel to the frame.
 		partyPanel.setBounds(45, 140, 150, 185 ); //change the bounds of the panel to set where the button group is on the frame.
+		partyPanel.setLayout(new BoxLayout(partyPanel,BoxLayout.Y_AXIS));
 		
 		partyPanel.setBackground(Color.DARK_GRAY); //Change the background color of each panel to dark gray.
 		
