@@ -16,9 +16,9 @@ public class ResultsPanel extends JFrame {
         frame.setLayout(new FlowLayout());
         ArrayList<Block> blocks = chain.getBlocks();
 
-        List<String> namesList = new ArrayList<String>();
+        //List<String> namesList = new ArrayList<String>();
         Map<String, Integer> voteMap = new HashMap<String, Integer>();
-        int currentVoteCount = 0;
+        //int currentVoteCount = 0;
 
 
         for (int i = 1; i < blocks.size(); i++) {
@@ -33,7 +33,7 @@ public class ResultsPanel extends JFrame {
 
         // Printing out the list of names and their counts
         for (HashMap.Entry<String, Integer> entry : voteMap.entrySet()) {
-            JLabel results = new JLabel(entry.getKey() + ": has " + entry.getValue() + " votes.");
+            JLabel results = new JLabel(entry.getKey() + " has " + entry.getValue() + " votes.");
             frame.add(results);
         }
         frame.setVisible(true);

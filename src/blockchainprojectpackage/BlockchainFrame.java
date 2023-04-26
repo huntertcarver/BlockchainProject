@@ -1,6 +1,7 @@
 package blockchainprojectpackage;
 
 import java.awt.Color;
+
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -14,6 +15,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class BlockchainFrame extends JFrame{
 	/**
@@ -37,11 +40,6 @@ public class BlockchainFrame extends JFrame{
 	private ButtonGroup partyGroup = new ButtonGroup();
 	public JRadioButton buttonArray[] = new JRadioButton[6]; 
 	
-	
-	
-	
-	
-	
 	public BlockchainFrame(Blockchain voteBlock) {
 		super("CBlock"); //Sets title of frame to 'CBlock'
 		setLayout(null); //Sets the layout of the frame to null so that buttons can be put in custom spots with setBounds() function.
@@ -61,23 +59,6 @@ public class BlockchainFrame extends JFrame{
 		voteInformation.setEditable(false); // Makes text uneditable (people cannot change what the text says)
 		
 		add(voteInformation);
-
-		//-----------------------Admin Button--------------------------------
-		adminButton = new JButton("Login as Administrator");
-		adminButton.setBounds(255, 365, 165, 35);
-		adminButton.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				if(e.getSource() == adminButton)
-				{
-					
-					LoginPanel newAdmin = new LoginPanel(voteBlock);
-				}
-			}
-		});
-		
-		add(adminButton);
 		
 		//--------------Radio Button Groups-------------------------------------
 		
@@ -114,8 +95,10 @@ public class BlockchainFrame extends JFrame{
 		
 		//---------------------vote Button---------------------------------------------
 		voteButton = new JButton("Vote");
-		voteButton.setBounds(255, 200, 95, 40);
+		voteButton.setBounds(245, 160, 130, 100);
 		voteButton.setBackground(Color.LIGHT_GRAY);
+		
+		Timer timer = new Timer();
 		voteButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
@@ -135,6 +118,8 @@ public class BlockchainFrame extends JFrame{
 								voteBlock.addBlock(voted);
 								System.out.println(voteBlock.getLatestBlock().getData());
 							}
+							//closes the frame after the user votes for their candidate.
+							dispose();
 						}
 					}
 					
@@ -145,3 +130,4 @@ public class BlockchainFrame extends JFrame{
 		
 	}
 }
+

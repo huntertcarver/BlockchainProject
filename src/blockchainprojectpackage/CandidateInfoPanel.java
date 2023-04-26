@@ -1,9 +1,12 @@
 package blockchainprojectpackage;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class CandidateInfoPanel extends JFrame{
 	
@@ -19,9 +22,10 @@ public class CandidateInfoPanel extends JFrame{
 	private JTextField fourthCandidate = new JTextField(30);
 	private JTextField fifthCandidate = new JTextField(30);
 	private JTextField sixthCandidate = new JTextField(30);
+	private JLabel successLabel = new JLabel("Candidates Sumbitted");
 	
-	//Two JLabels for each class.
-	private JLabel repParty = new JLabel("Election Candidates");
+	//JLabel at top of frame.
+	private JLabel menuLabel = new JLabel("Election Candidates");
 	
 	CandidateInfoPanel(BlockchainFrame mainFrame, Blockchain mainChain){
 		//Set the layout to null and change the setBounds of each element.
@@ -29,11 +33,14 @@ public class CandidateInfoPanel extends JFrame{
 		setVisible(true);
 		setLayout(null);
 		Font font = new Font("Verdana", Font.BOLD, 14);
-		repParty.setFont(font);
+		menuLabel.setFont(font);
+		successLabel.setVisible(Boolean.FALSE);
+		
 		setSize(400,290);
 		//bounds for each element.
 		submitButton.setBounds(100, 200, 160, 40);
-		repParty.setBounds(110, 20, 180, 20);
+		successLabel.setBounds(110, 235, 160, 40);
+		menuLabel.setBounds(110, 20, 180, 20);
 		firstCandidate.setBounds(30, 60, 140, 25);
 		secondCandidate.setBounds(30, 100, 140, 25);
 		thirdCandidate.setBounds(30, 140, 140, 25);
@@ -46,7 +53,8 @@ public class CandidateInfoPanel extends JFrame{
 		
 		//add each to the frame.
 		add(submitButton);
-		add(repParty);
+		add(successLabel);
+		add(menuLabel);
 		add(firstCandidate);
 		add(secondCandidate);
 		add(thirdCandidate);
@@ -54,6 +62,13 @@ public class CandidateInfoPanel extends JFrame{
 		add(fifthCandidate);
 		add(sixthCandidate);
 		
+		//Change the colors of the elements in the frame.
+		getContentPane().setBackground(Color.DARK_GRAY);
+		menuLabel.setForeground(Color.WHITE);
+		submitButton.setBackground(Color.LIGHT_GRAY);
+		successLabel.setForeground(Color.WHITE);
+		
+		Timer timer = new Timer();
 		submitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				for (int i = 0; i < textArray.length; i++) {
@@ -62,9 +77,13 @@ public class CandidateInfoPanel extends JFrame{
 						mainFrame.buttonArray[i].setVisible(true);
 					}
 				}
-				mainFrame.setVisible(true);
-				mainFrame.setSize(450, 400);
-				//mainFrame.buttonArray[i].setText(textArray[i].getText());
+				successLabel.setVisible(Boolean.TRUE);
+				timer.schedule(new TimerTask() {
+					public void run() {
+						dispose();
+					}
+				}, 2000); //<-Number of milliseconds.
+				
 			}
 		});
 		
