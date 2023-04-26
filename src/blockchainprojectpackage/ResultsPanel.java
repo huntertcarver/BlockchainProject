@@ -21,7 +21,7 @@ public class ResultsPanel extends JFrame {
         int currentVoteCount = 0;
 
 
-        for (int i = 0; i < blocks.size(); i++) {
+        for (int i = 1; i < blocks.size(); i++) {
             //If vote canidate does not exist in map yet add its key.
             if(!voteMap.containsKey(blocks.get(i).getData())) {
                 voteMap.put(blocks.get(i).getData(), 1);

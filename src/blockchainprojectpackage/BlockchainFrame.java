@@ -131,7 +131,7 @@ public class BlockchainFrame extends JFrame{
 						{
 							if(buttonArray[i].isSelected())
 							{
-								Block voted = new Block(voteBlock.getLatestBlock().getIndex() + 1, buttonArray[i].getName(), voteBlock.getLatestBlock().getHash());
+								Block voted = new Block(voteBlock.getLatestBlock().getIndex() + 1, buttonArray[i].getText(), voteBlock.getLatestBlock().getHash());
 								voteBlock.addBlock(voted);
 								System.out.println(voteBlock.getLatestBlock().getData());
 							}
