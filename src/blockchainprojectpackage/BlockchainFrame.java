@@ -37,7 +37,7 @@ public class BlockchainFrame extends JFrame{
 	private JRadioButton optionButton4 = new JRadioButton();
 	private JRadioButton optionButton5 = new JRadioButton();
 	private JRadioButton optionButton6 = new JRadioButton();
-	private ButtonGroup partyGroup = new ButtonGroup();
+	public ButtonGroup partyGroup = new ButtonGroup();
 	public JRadioButton buttonArray[] = new JRadioButton[6]; 
 	
 	public BlockchainFrame(Blockchain voteBlock) {

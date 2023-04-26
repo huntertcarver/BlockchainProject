@@ -22,7 +22,7 @@ public class CandidateInfoPanel extends JFrame{
 	private JTextField fourthCandidate = new JTextField(30);
 	private JTextField fifthCandidate = new JTextField(30);
 	private JTextField sixthCandidate = new JTextField(30);
-	private JLabel successLabel = new JLabel("Candidates Sumbitted");
+	private JLabel successLabel = new JLabel("Candidates Submitted");
 	
 	//JLabel at top of frame.
 	private JLabel menuLabel = new JLabel("Election Candidates");

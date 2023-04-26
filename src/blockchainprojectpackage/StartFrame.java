@@ -60,6 +60,7 @@ public class StartFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == loginButton) {
 					//BlockchainFrame updatedFrame = new BlockchainFrame(mainChain);
+					mainFrame.partyGroup.clearSelection();
 					mainFrame.setVisible(true);
 					mainFrame.setSize(450, 400);
 					//System.out.println("dog");
