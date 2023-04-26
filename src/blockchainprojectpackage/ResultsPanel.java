@@ -1,25 +1,25 @@
 package blockchainprojectpackage;
 
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.FlowLayout;
+
+import java.awt.Color;
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class ResultsPanel extends JFrame {
     private static final long serialVersionUID = 1L;
-    public JFrame frame = new JFrame();
+    Font font = new Font("Verdana", Font.BOLD, 14);
 
     public ResultsPanel(Blockchain chain) {
-        frame.setLayout(new FlowLayout());
+        setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+    	//setLayout(new FlowLayout());
         ArrayList<Block> blocks = chain.getBlocks();
 
-        //List<String> namesList = new ArrayList<String>();
         Map<String, Integer> voteMap = new HashMap<String, Integer>();
-        //int currentVoteCount = 0;
-
 
         for (int i = 1; i < blocks.size(); i++) {
             //If vote canidate does not exist in map yet add its key.
@@ -33,10 +33,15 @@ public class ResultsPanel extends JFrame {
 
         // Printing out the list of names and their counts
         for (HashMap.Entry<String, Integer> entry : voteMap.entrySet()) {
-            JLabel results = new JLabel(entry.getKey() + " has " + entry.getValue() + " votes.");
-            frame.add(results);
+            JLabel results = new JLabel("  " + entry.getKey() + " has " + entry.getValue() + " votes.\n");
+            add(results);
+            results.setHorizontalAlignment(JLabel.CENTER);
+            results.setForeground(Color.WHITE);
+            results.setFont(font);
         }
-        frame.setVisible(true);
-        frame.setSize(450, 450);
+        
+        getContentPane().setBackground(Color.DARK_GRAY);
+        setVisible(true);
+        setSize(330, 200);
     }
 }
